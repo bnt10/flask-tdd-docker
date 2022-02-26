@@ -1,12 +1,14 @@
+
+import os  # new
 class BaseConfig:
     TESTING = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False  # new
 
 class DevelopmentConfig(BaseConfig):
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')  # new
 
-class TestConfig(BaseConfig):
+class TestingConfig(BaseConfig):
     TESTING = True
-
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_TEST_URL')  # new
 class ProductionConfig(BaseConfig):
-    pass
-    
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')  # new
