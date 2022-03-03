@@ -1,3 +1,4 @@
+import sys
 from tkinter import E
 
 
@@ -178,7 +179,74 @@ def test_multiplication_table():
 
 
 def test_difference():
-    pass
+    n = int(input())
+    for i in range(0, n):
+        a, b = map(int, input().split())
+        print(a + b)
 
 
-test_difference()
+def test_fest_difference():
+    n = int(sys.stdin.readline().rstrip())
+    for i in range(0, n):
+        a, b = map(int, sys.stdin.readline().split())
+        print(a + b)
+
+
+def test_sum():
+    n = int(input())
+
+
+def test_n_print():
+    n = int(sys.stdin.readline().rstrip())
+    for i in range(1, n + 1):
+        print(i)
+
+
+def test_n_print_reverse():
+    n = int(sys.stdin.readline().rstrip())
+    for i in range(n, 0, -1):
+        print(i)
+
+
+def test_fest_difference_version_6():
+    n = int(sys.stdin.readline().rstrip())
+    for i in range(1, n + 1):
+        a, b = map(int, sys.stdin.readline().split())
+        print(f"Case #{i}: {a + b}")
+
+
+def test_fest_difference_version_7():
+    n = int(sys.stdin.readline().rstrip())
+    for i in range(1, n + 1):
+        a, b = map(int, sys.stdin.readline().split())
+        print(f"Case #{i}: {a} + {b} = {a + b}")
+
+
+def print_star():
+    n = int(sys.stdin.readline().rstrip())
+    for i in range(1, n + 1):
+        print(f"{i * '*' }")
+
+
+def print_star_white_space():
+    n = int(sys.stdin.readline().rstrip())
+    for i in range(1, n + 1):
+        print(f"{(n-i) * ' ' }{i*'*'}")
+
+
+def test_find_number_less_than_x():
+    n, x = map(int, sys.stdin.readline().split())
+    numbers = list(map(int, sys.stdin.readline().split()))
+    find_numbers = [str(i) for i in numbers if i < x]
+    print(" ".join(find_numbers))
+
+    # 아래가 맞는듯
+    # a, b = map(int, input().split())
+    # c = list(map(int, input().split()))
+
+    # for i in range(a):
+    #     if (c[i] < b):
+    #         print(c[i], end = " ")
+
+
+test_find_number_less_than_x()

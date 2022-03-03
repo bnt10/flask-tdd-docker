@@ -1,9 +1,8 @@
 from flask import Blueprint, request
-from flask_restx import Resource, Api, fields  # updated
+from flask_restx import Api, Resource, fields  # updated
 
 from src import db
 from src.api.models import User
-
 
 users_blueprint = Blueprint("users", __name__)
 api = Api(users_blueprint)
