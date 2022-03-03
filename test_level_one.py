@@ -249,4 +249,8 @@ def test_find_number_less_than_x():
     #         print(c[i], end = " ")
 
 
+def add():
+    pass
+
+
 test_find_number_less_than_x()
