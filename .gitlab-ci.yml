@@ -3,9 +3,14 @@ image: docker:stable
 stages:
   - build
   - test
+  - debug
 
 variables:
   IMAGE: ${CI_REGISTRY}/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}
+
+debug:
+  variables:
+    CI_DEBUG_TRACE: "true"
 
 build:
   stage: build
@@ -15,13 +20,7 @@ build:
     DOCKER_DRIVER: overlay2
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker pull $IMAGE:latest || true
-    - docker build
-        --cache-from $IMAGE:latest
-        --tag $IMAGE:latest
-        --file ./Dockerfile.prod
-        "."
-    - docker push $IMAGE:latest
+    
 
 
 test:
