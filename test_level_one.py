@@ -249,8 +249,32 @@ def test_find_number_less_than_x():
     #         print(c[i], end = " ")
 
 
-def add():
-    pass
+def test_add_version5():
+    while True:
+        try:
+            a, b = map(int, input().split())
+            print(a + b)
+        except:
+            break
 
 
-test_find_number_less_than_x()
+def test_add_cycle():
+    n = str(input().rstrip())
+    cycleList = list(n) if int(n) > 9 else ["0", n]
+    count = 0
+    while True:
+        try:
+            sumValue = int(cycleList[0]) + int(cycleList[1])
+            cycleList[0] = str(cycleList[1])
+            cycleList[1] = str(sumValue)[1:] if sumValue > 9 else str(sumValue)
+            count += 1
+            compareValue = "".join(cycleList)
+            if int(compareValue) == int(n):
+                break
+        except:
+            break
+
+    print(count)
+
+
+test_add_cycle()
