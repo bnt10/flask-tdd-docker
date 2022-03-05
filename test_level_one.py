@@ -277,4 +277,8 @@ def test_add_cycle():
     print(count)
 
 
+def test():
+    pass
+
+
 test_add_cycle()
